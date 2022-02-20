@@ -5,12 +5,12 @@ import base64
 from urllib.parse import urlparse
 import http.server
 
+# Script for creating refresh token
+
 def main():
-
     global auth_code
-
-    # Script for creating refresh token
-
+    
+    # Simple http server for receiving auth code
     class LoginServer(http.server.BaseHTTPRequestHandler):
         def do_GET(self):
             global auth_code
@@ -24,7 +24,8 @@ def main():
             query = urlparse(self.path).query
             auth_code = query.split("=")[1]
             print("\nAuth Code received")
-
+    
+    # First getting link for user with specific scope
     scope = "user-read-playback-state user-modify-playback-state"
     redirect_uri = "http://raspberrypi.local:8080/"
     auth_url = "https://accounts.spotify.com/authorize"
@@ -38,6 +39,8 @@ def main():
     print("Copy and paste the following link into your browser:")
     print(auth_response.request.url)
     print()
+
+    # Starting http server to get auth code from Spotify
     hostName = "0.0.0.0"
     serverPort = 8080
     webServer = http.server.HTTPServer((hostName, serverPort), LoginServer)
@@ -51,6 +54,7 @@ def main():
     webServer.server_close()
     print("Server stopped. Collecting Token...")
 
+    # Using auth code to get refresh token
     encoded_client = "{}:{}".format(cred.client_id, cred.client_secret)
     encoded_client = encoded_client.encode('ascii')
     encoded_client = base64.b64encode(encoded_client)
@@ -64,9 +68,10 @@ def main():
         'code': auth_code,
         'grant_type': "authorization_code",
     }, headers=headers)
-
     auth_response_data = auth_response.json()
     refresh_token = auth_response_data['refresh_token']
+    
+    # Writing token to file
     creds = open("cred.py", 'r')
     old_creds = creds.readlines()
     old_creds.pop()
