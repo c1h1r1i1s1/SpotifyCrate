@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/c1h1r1i1s1/SpotifyCrate">
-    <img src="logo.png" alt="Logo" width="267" height="80">
+    <img src="logo.jpg" alt="Logo" width="300" height="300">
   </a>
 
 <h3 align="center">Spotify Crate</h3>
@@ -47,16 +47,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="que_added.png" alt="Qued" width="500" height="300" align="center">
-
 Do you wish you had physical copies of the music you enjoy? One of the main downsides of Spotify is that you never really *own* the music. You can't keep a collection in your room. It all exists within the screen.
 
 This project is intended to be run on a Raspberry Pi with an NFC hat.
 
 Using the Spotify API, this project utilises nfc technology to attach our favourite Spotify albums and playlists to physical objects. Scanning an nfc tag against the connected nfc reader will automatically start playing the specified music from any Spotify device. With the implementation of <a href="https://github.com/dtcooper/raspotify">Raspotify</a>, we are also able to attach the Pi directly to a set of speakers, making the entire device standalone. 
 
-<!--Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `c1h1r1i1s1`, `SpotifyCrate`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
--->
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -96,7 +92,7 @@ First we have to write the album data to the nfc tag. To get the album URI (Spot
    python3 writer.py
    ```
 to start the program.
-<p>
+
 Once the program has started up and asks for the code, paste the code, removing the first two parts. E.G:
    ```sh
    spotify:album:2fYcpbTFptY9uRcaY56NRu
@@ -108,7 +104,7 @@ would become:
 
 Once you have inputted the code, place the NFC tag on the reader to write the data to the tag.
 
-<p>
+
 
 To play a song, simply run the reader program with
    ```sh
