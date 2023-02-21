@@ -76,7 +76,6 @@ To set up this project locally, you will need to create a spotify application th
    * <b> For others: </b> As you need the program to redirect to your device via the same local address each time, you must have a reserved local IP address set for your device that you can use such as `192.168.0.8`. You would then add `http://192.168.0.8:8080` as the redirect URL. Otherwise, you could have your own hostname being broadcasted across the network such as 'mycomputer' which could then be accessed at `http://mycomputer.local:8080`. Note that in each case, port 8080 must be used.
 
 3. Now that you have your app set up, open `cred.py` in the installation directory. Here you can input your client ID and client secret.
-   * <b> NOTE: You must either have 2 Factor Authentication disabled, or be able to receive a login code either via a 2FA code generator or message service. The method of facebook sending a link to allow the connection seems not to work with this version of fbchat.</b>
 
 4. Run `auth.py` to give the app Spotify conectivity.
 
@@ -112,6 +111,9 @@ To play a song, simply run the reader program with
    ```
 Scan an nfc tag on the reader, and the chosen album will begin playing from the Pi, or the first active Spotify device if you are not using Raspotify.
 </p>
+
+![Example Image](https://user-images.githubusercontent.com/49024871/220259596-cd0765df-37b8-4ead-aef6-d447117d1771.jpg)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
